@@ -37,16 +37,14 @@ int main() {
 
 	bool isLoop = false;
 	
-	for (int i = 1; i < N; i++) {
-		for (int j = 0; j < M; j++) {
-			int s, e, w;
-			tie(s, e, w) = arr[j];
-			if (distance[s] != LONG_MAX && distance[e] > distance[s] + w) {
-				isLoop = true;
-				break;
-			}
+
+	for (int j = 0; j < M; j++) {
+		int s, e, w;
+		tie(s, e, w) = arr[j];
+		if (distance[s] != LONG_MAX && distance[e] > distance[s] + w) {
+			isLoop = true;
+			break;
 		}
-		if(isLoop) break;
 	}
 
 	if (isLoop) {
