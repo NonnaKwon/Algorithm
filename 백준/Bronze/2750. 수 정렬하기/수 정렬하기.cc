@@ -1,27 +1,35 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 
 int main() {
-	int t;
-	cin>>t;
+	ios::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
 
-	int* arr = new int[t];
-	for (int i = 0; i < t; i++) {
+	//버블정렬
+	int N;
+	cin>>N;
+	vector<int> arr(N,0);
+
+	for (int i = 0; i < N; i++) {
 		cin>>arr[i];
 	}
 
-	for (int i = 0; i < t; i++) {
-		for (int j = i+1; j < t; j++) {
-			if (arr[i] > arr[j]) {
-				int tmp = arr[i];
-				arr[i] = arr[j];
-				arr[j] = tmp;
+	for (int i = N; i>0; i--) {
+		for (int j = 0; j < i-1; j++) {
+			if (arr[j] > arr[j + 1]) {
+				int tmp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = tmp;
 			}
 		}
-		cout<<arr[i]<<endl;
+	}
+
+	for (int i = 0; i < N; i++) {
+		cout<<arr[i]<<"\n";
 	}
 	
 	return 0;
 }
-
